@@ -8,8 +8,8 @@ import is from 'is_js';
 import { List } from 'immutable';
 
 export const ErrorPageHandler = (props) => {
-  const { children, config, erroredApi, clean } = props;
-  if (! ApiCall.State.isValue(erroredApi)) {
+  const { children, config, erroredApi, clean, routes } = props;
+  if (! ApiCall.State.isValue(erroredApi) && ! isThereA404()) {
     return children;
   }
 
@@ -19,10 +19,15 @@ export const ErrorPageHandler = (props) => {
         afterButtonClicked={() => clean(erroredApi.id)}
         {...props} />
   </div>;
+
+  function isThereA404() {
+    return routes.length >= 1 && routes[routes.length - 1].path === '*';
+  }
 };
 
 ErrorPageHandler.propTypes = {
   children: React.PropTypes.node,
+  routes: React.PropTypes.array.isRequired,
   replace: React.PropTypes.func.isRequired,
   clean: React.PropTypes.func.isRequired,
   erroredApi: React.PropTypes.shape({
