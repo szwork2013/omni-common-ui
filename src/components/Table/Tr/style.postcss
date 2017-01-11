@@ -1,0 +1,11 @@
+.Tr {
+  border-top: var(--hairThin) solid var(--colorBorder);
+
+  &.__firstRow {
+    & > .Th > .Th_wrap,
+    & > .Td > .Td_wrap {
+      height: 30px;
+      min-height: 0;
+    }
+  }
+}

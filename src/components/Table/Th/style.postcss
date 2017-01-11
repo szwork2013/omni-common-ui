@@ -1,0 +1,35 @@
+.Th {
+  margin: 0;
+  padding: 0 20px;
+
+  &_wrap {
+    align-items: center;
+    display: flex;
+    height: 50px; /* required for IE 11 to align text vertically */
+    justify-content: center;
+    min-height: 50px;
+  }
+
+  &_content {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.__left {
+    text-align: left;
+
+    & .Td_wrap,
+    & .Th_wrap {
+      justify-content: flex-start;
+    }
+
+    &:first-child {
+      padding-right: 10px;
+    }
+
+    &:not(:first-child) {
+      padding-left: 10px;
+    }
+  }
+}

@@ -1,13 +1,15 @@
-import Reactable from 'reactable';
-import Table from './Table';
-import Expandable from './Expandable';
+import _Table from './Table';
+import _Tr from './Tr';
+import _Th from './Th';
+import _Td from './Td';
 
-Table.Expandable = Expandable;
-Table.Sort = Reactable.Sort;
-Table.Td = Reactable.Td;
-Table.Tfoot = Reactable.Tfoot;
-Table.Thead = Reactable.Thead;
-Table.Tr = Reactable.Tr;
-Table.Th = Reactable.Th;
+export const Table = _Table;
+export const Tr = _Tr;
+export const Th = _Th;
+export const Td = _Td;
+
+Table.Tr = Tr;
+Table.Th = Th;
+Table.Td = Td;
 
 export default Table;
